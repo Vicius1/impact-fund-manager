@@ -21,3 +21,13 @@ async def create_investment(
         investment_data=investment_data
     )
     return new_investment
+
+@router.get("/investments", response_model=list[InvestmentResponse])
+async def list_investments(
+    db: AsyncSession = Depends(get_db_session)
+):
+    """
+    Retorna todos os registros de investimento.
+    """
+    investments = await repository.get_all_investments(db=db)
+    return investments
