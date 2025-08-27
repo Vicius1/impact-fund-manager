@@ -7,5 +7,7 @@ class Settings(BaseSettings):
     )
 
     DATABASE_URL: str
+    GOOGLE_CREDENTIALS_FILE: str
+    GOOGLE_DRIVE_PARENT_FOLDER_ID: str
 
 settings = Settings()
